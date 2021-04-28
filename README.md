@@ -1,4 +1,4 @@
-⚠️ Codes are not optimized, and fully tested. 
+⚠️ Codes are not optimized, and not fully tested. 
 
 # HelloShopify
 # Branch a 
