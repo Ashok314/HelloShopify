@@ -1,4 +1,31 @@
 @charset "UTF-8";
+.modal {
+  max-width: 575px;
+  background: white;
+  border: 5px solid #111;
+  padding: 50px 65px;
+  position: fixed;
+  z-index: 1000;
+}
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.modal--overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.hidden {
+  display: none;
+}
 /*============================================================================
   Debut | Built with Shopify Slate
 
@@ -2833,6 +2860,17 @@ hr {
   font-size: calc(((var(--font-size-base) - 2) / (var(--font-size-base))) * 1em);
   line-height: 1.2;
   color: var(--color-body-text); }
+
+  .product-form__cart-submit {
+    background-color:green;
+    color: white;
+  }
+  
+  /* Hover */
+  .product-form__cart-submit:hover {
+    background-color: blue !important;
+    color: green !important;
+  }
 
 .product-form__cart-submit, .shopify-payment-button .shopify-payment-button__button--unbranded {
   display: block;

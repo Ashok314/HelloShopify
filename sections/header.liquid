@@ -130,14 +130,17 @@
             {% endif %}
           {% endif %}
 
-          <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
+          {% comment %} <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
             {% include 'icon-cart' %}
             <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
-            <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %} critical-hidden" data-cart-count-bubble>
-              <span data-cart-count>{{ cart.item_count }}</span>
-              <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+            <div id="cart-number" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %} critical-hidden" data-cart-count-bubble>
+            <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
             </div>
-          </a>
+          </a> {% endcomment %}
+          <a id="cart-number" href="/cart" class="site-header__icon site-header__cart">
+            {% include 'icon-cart' %} 
+            <span> {{cart.item_count}}</span>
+            </div> </a>
 
           {% unless linklists[section.settings.main_linklist] == blank %}
             <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
@@ -276,6 +279,14 @@
   ],
   "url": {{ shop.url | append: page.url | json }}
 }
+
+var cartCount = {{ cart.item_count }};
+
+$(document).ready(function(){   
+{% if cart.item_count != 0 %}  
+$('#cart-number').replaceWith("<a href="/cart" id="cart-number">View cart (" + cartCount + ")</a>");
+{% endif %}
+});
 </script>
 
 {% if request.page_type == 'index' %}

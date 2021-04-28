@@ -217,7 +217,7 @@
                 {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}
                 {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
               >
-                <button type="submit" name="add"
+                {% comment %} <button type="submit" name="add"
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}
                   aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
                   class="btn product-form__cart-submit{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"
@@ -233,7 +233,16 @@
                   <span class="hide" data-loader>
                     {% include 'icon-spinner' %}
                   </span>
-                </button>
+                </button> {% endcomment %}
+
+                {% unless current_variant.available %}
+                      <button type="button" disabled class="btn btn--purchase">ADD TO CART</button>
+                    {% else %}
+                      <form action="/cart/add" method="post" class="product-form" id="add-to-cart">
+                      <input type="submit" name="add" value="ADD TO CART" class="btn btn--purchase product-form__cart-submit" onclick="addItem('add-to-cart'); return false; ">
+                    {% endunless %}
+
+                
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
