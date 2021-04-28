@@ -1,3 +1,5 @@
+⚠️ Codes are not optimized, and fully tested. 
+
 # HelloShopify
 # Branch a 
   * Implemented add-to-cart using Javascript AJAX. ✔️ </br>
