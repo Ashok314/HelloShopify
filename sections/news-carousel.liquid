@@ -1,0 +1,124 @@
+{% for block in section.blocks %}
+
+	{% if block.settings.featured %}
+                  {% if block.type  =='text' %}
+               <h1 style="color:red;"> {{ block.settings.title }} </h1>
+                  <p >{{ block.settings.description }} </p>
+
+              {%endif%}
+
+              {% if block.type =='url' %}
+          <h1 style="color:blue;"> {{ block.settings.title }} </h1>
+                  <p> {{ block.settings.description }}
+          </p>
+                {%endif%}
+
+              {% if block.type =='textarea' %}
+          <h1 style="color:green;"> {{ block.settings.title }} </h1>
+                  <p> {{ block.settings.description }}
+          </p>
+              {%endif%}
+	{%endif%}
+{% endfor %}
+
+{% for block in section.blocks %}
+
+	{% if  block.settings.featured != true %}
+   {% if block.type  =='text' %}
+     <h1 style="color:red;"> {{ block.settings.title }} </h1>
+		<p >{{ block.settings.description }} </p>
+	
+	{%endif%}
+	
+	{% if block.type =='url' %}
+<h1 style="color:blue;"> {{ block.settings.title }} </h1>
+		<p> {{ block.settings.description }}
+</p>
+	  {%endif%}
+	
+	{% if block.type =='textarea' %}
+<h1 style="color:green;"> {{ block.settings.title }} </h1>
+		<p> {{ block.settings.description }}
+</p>
+	{%endif%}
+{%endif%}
+
+{% endfor %}
+
+
+
+{% schema %}
+  {
+    "blocks": [
+      {
+        "name": "campaign",
+		"type":"text",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "This is a Title."
+          },
+			{
+            "id": "description",
+            "type": "textarea",
+            "label": "This is a description."
+          },
+			{
+            "id": "featured",
+            "type": "checkbox",
+            "label": "this is featured"
+          }
+        ]
+      },
+{
+        "name": "new-product",
+		"type":"url",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "This is a Title."
+          },
+			{
+            "id": "description",
+            "type": "textarea",
+            "label": "This is a description."
+          },
+			{
+            "id": "featured",
+            "type": "checkbox",
+            "label": "this is featured"
+          }
+        ]
+      },{
+        "name": "news",
+		"type":"textarea",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "This is a Title."
+          },
+			{
+            "id": "description",
+            "type": "textarea",
+            "label": "This is a description."
+          },
+			{
+            "id": "featured",
+            "type": "checkbox",
+            "label": "this is featured"
+          }
+        ]
+      }
+
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %} 
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
