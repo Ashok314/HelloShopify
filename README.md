@@ -1,6 +1,7 @@
 # HelloShopify
 # Branch a 
   * Implemented add-to-cart using Javascript AJAX. ✔️ </br>
+  * Line item property ⭕
   * "Add to cart" grey & disabled when no stock. ✔️ </br>
   * Green if stock available and blue on hover. ✔️ </br>
   * Added instrucion on cart page ⭕✔️  </br> 
@@ -14,6 +15,10 @@
   * Blocks who have the “Featured” attribute enabled/selected, have to appear first in the list. ✔️ </br>
 
 # Branch c
+* The modal should show how much stock does the current product have. ✔️ </br>
+* The modal dialog should show information about the current user cart (which items are 
+already in the cart, -t-h-e- “-c-a-r-t_-i-n-d-e-x” of each item (developed in task A), how many, total 
+amount in the cart) ✔️ </br>
 
 # Branch d
 
