@@ -1,2 +1,3 @@
 #ignore congfig files 
 config.yml
+nodescript/node_modules/*
