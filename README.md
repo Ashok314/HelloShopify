@@ -23,4 +23,7 @@ already in the cart, -t-h-e- “-c-a-r-t_-i-n-d-e-x” of each item (developed i
 amount in the cart) ✔️ </br>
 
 # Branch d
+* Node script added, implemented using node with python
+* replace "replace_me" with the actual url will be send in email.
+
 
